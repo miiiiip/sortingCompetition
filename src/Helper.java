@@ -48,9 +48,7 @@ public class Helper {
      * Takes an integer number and returns the number of 1s
      * in its binary representation.
      */
-    public static int numBinaryOnes(int n){
-        String binary = Integer.toBinaryString(n);
-
+    public static int numBinaryOnes(String binary){
         //System.out.println(binary);
 
         int count = 0;

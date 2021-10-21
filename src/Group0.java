@@ -49,12 +49,20 @@ public class Group0 {
     // You would need to provide your own function that prints your sorted array to
     // a file in the exact same format that my program outputs
     private static void sort(Integer[] toSort) {
+        obj[] inputConverted = new obj[toSort.length];
+
+        for (int i = 0; i < toSort.length; i++) {
+            inputConverted[i] = new obj(toSort[i]);
+        }
+
+
         Arrays.sort(toSort, new BinaryComparator());
     }
 
     private static String[] readData(String inFile) throws FileNotFoundException {
         ArrayList<String> input = new ArrayList<>();
         Scanner in = new Scanner(new File(inFile));
+
 
         while(in.hasNext()) {
             input.add(in.next());
@@ -96,8 +104,8 @@ public class Group0 {
 
         @Override
         public int compare(Integer n1, Integer n2) {
-            int digits1 = Helper.numBinaryOnes(n1);
-            int digits2 = Helper.numBinaryOnes(n2);
+            int digits1 = Helper.numBinaryOnes(Integer.toBinaryString(n1));
+            int digits2 = Helper.numBinaryOnes(Integer.toBinaryString(n2));
 
             int lengthSubstring1 = Helper.lengthLongestRepeatedSubstring(Integer.toBinaryString(n1));
             int lengthSubstring2 = Helper.lengthLongestRepeatedSubstring(Integer.toBinaryString(n2));
