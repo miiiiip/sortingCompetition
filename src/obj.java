@@ -8,6 +8,7 @@ public class obj {
 
     public obj(int name) {
         this.name = name;
+        this.repeatLength = -1;
     }
 
     public void setNum1s() {
@@ -28,6 +29,10 @@ public class obj {
         this.repeatLength = Helper.lengthLongestRepeatedSubstring(this.binRep);
     }
 
+    public String getBinRep() {
+        return binRep;
+    }
+
     public int getName() {
         return name;
     }
@@ -35,17 +40,4 @@ public class obj {
     public void setName(int name) {
         this.name = name;
     }
-
-    public obj[] toArray(int[] a){
-        int len = a.length;
-        obj[] objArr = new obj[len];
-        for (int i = 0; i < a.length; i++) {
-            obj Integer.toString(i) = new obj;
-            objArr[i] = ;
-            setName(objArr[]);
-        }
-    }
-
-
-
 }

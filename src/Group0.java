@@ -56,7 +56,7 @@ public class Group0 {
         }
 
 
-        Arrays.sort(toSort, new BinaryComparator());
+        Arrays.sort(inputConverted, new BinaryComparator());
     }
 
     private static String[] readData(String inFile) throws FileNotFoundException {
@@ -100,22 +100,25 @@ public class Group0 {
 
     }
 
-    private static class BinaryComparator implements Comparator<Integer> {
+    private static class BinaryComparator implements Comparator<obj> {
 
         @Override
-        public int compare(Integer n1, Integer n2) {
-            int digits1 = Helper.numBinaryOnes(Integer.toBinaryString(n1));
-            int digits2 = Helper.numBinaryOnes(Integer.toBinaryString(n2));
-
-            int lengthSubstring1 = Helper.lengthLongestRepeatedSubstring(Integer.toBinaryString(n1));
-            int lengthSubstring2 = Helper.lengthLongestRepeatedSubstring(Integer.toBinaryString(n2));
-
+        public int compare(obj n1, obj n2) {
+            int digits1 = n1.getNum1s();
+            int digits2 = n2.getNum1s();
             if (digits1 != digits2) return (digits1 - digits2);
             // executed only of the number of 1s is the same
-            if (lengthSubstring1 != lengthSubstring2) return (lengthSubstring1 - lengthSubstring2);
+
+            if(n1.getRepeatLength()==-1){
+                n1.setRepeatLength(Helper.lengthLongestRepeatedSubstring(n1.getBinRep()));
+            }
+            if(n2.getRepeatLength()==-1){
+                n2.setRepeatLength(Helper.lengthLongestRepeatedSubstring(n2.getBinRep()));
+            }
+            if (n1.getRepeatLength() != n2.getRepeatLength()) return (n1.getRepeatLength() - n2.getRepeatLength());
 
             // executed only if both of the other ones were the same:
-            return (n1 - n2);
+            return (n1.getName() - n2.getName());
         }
 
     }
