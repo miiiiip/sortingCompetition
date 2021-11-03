@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class Group0 {
+public class Group6 {
 
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
 
@@ -114,11 +114,11 @@ public class Group0 {
 
             if(n1.getRepeatLength()==-1){
                 String binRep = n1.getBinRep();
-                n1.setRepeatLength(Helper.lengthLongestRepeatedSubstring(binRep));
+                n1.setRepeatLength(Helper6.lengthLongestRepeatedSubstring(binRep));
             }
             if(n2.getRepeatLength()==-1){
                 String binRep = n2.getBinRep();
-                n2.setRepeatLength(Helper.lengthLongestRepeatedSubstring(binRep));
+                n2.setRepeatLength(Helper6.lengthLongestRepeatedSubstring(binRep));
             }
             if (n1.getRepeatLength() != n2.getRepeatLength()) return (n1.getRepeatLength() - n2.getRepeatLength());
 

@@ -14,7 +14,7 @@ public class obj {
 
     public void setNum1s() {
         this.binRep = Integer.toBinaryString(this.name);
-        this.num1s = Helper.numBinaryOnes(this.binRep);
+        this.num1s = Helper6.numBinaryOnes(this.binRep);
     }
 
     public int getNum1s() {
@@ -27,7 +27,7 @@ public class obj {
 
     public void setRepeatLength(int repeatLength) {
 
-        this.repeatLength = Helper.lengthLongestRepeatedSubstring(this.binRep);
+        this.repeatLength = Helper6.lengthLongestRepeatedSubstring(this.binRep);
     }
 
     public String getBinRep() {
