@@ -1,56 +1,52 @@
 
 public class Helper {
 
-//    public static void main(String [] args) {
-//        // Testing helper methods
-//        if (numBinaryOnes(5) != 2) {
-//            System.out.println("Unexpected result: " + numBinaryOnes(5));
-//        }
-//
-//        if (numBinaryOnes(1023) != 10) {
-//            System.out.println("Unexpected result: " + numBinaryOnes(1023));
-//        }
-//
-//        if (numBinaryOnes(1024) != 1) {
-//            System.out.println("Unexpected result: " + numBinaryOnes(1024));
-//        }
-//
-//        // Testing the longest repeated non-overlapping substring
-//        if (lengthLongestRepeatedSubstring("01") != 0) {
-//            System.out.println("Unexpected result on \"01\": " + lengthLongestRepeatedSubstring("01"));
-//        }
-//
-//        if (lengthLongestRepeatedSubstring("00") != 1) {
-//            System.out.println("Unexpected result on \"00\": " + lengthLongestRepeatedSubstring("00"));
-//        }
-//
-//        if (lengthLongestRepeatedSubstring("000") != 1) {
-//            System.out.println("Unexpected result on \"000\": " + lengthLongestRepeatedSubstring("000"));
-//        }
-//
-//        String[] tests = {"0101", "1111", "11111", "010101", "0101010", "0101110101", "1110111111",
-//                "11100010000", "1110000100001", "111000010001", "011010101"};
-//        int [] answers = {2, 2, 2, 2, 3, 4, 3, 4, 5, 4, 3};
-//
-//        if (tests.length != answers.length) {
-//            System.out.println("The number of tests and answers don't match");
-//        }
-//
-//        for(int i = 0; i < tests.length; ++i) {
-//            if (lengthLongestRepeatedSubstring(tests[i]) != answers[i]) {
-//                System.out.println("Unexpected result on " + tests[i] + ":" +
-//                        lengthLongestRepeatedSubstring(tests[i]) + " instead of " + answers[i]);
-//            }
-//        }
-//    }
+    public static void main(String [] args) {
+
+        // Testing helper methods
+
+        if (numBinaryOnes("1111111111") != 10) {
+            System.out.println("Unexpected result: " + numBinaryOnes("1111111111"));
+        }
+
+        if (numBinaryOnes("1") != 1) {
+            System.out.println("Unexpected result: " + numBinaryOnes("1"));
+        }
+
+        // Testing the longest repeated non-overlapping substring
+        if (lengthLongestRepeatedSubstring("01") != 0) {
+            System.out.println("Unexpected result on \"01\": " + lengthLongestRepeatedSubstring("01"));
+        }
+
+        if (lengthLongestRepeatedSubstring("00") != 1) {
+            System.out.println("Unexpected result on \"00\": " + lengthLongestRepeatedSubstring("00"));
+        }
+
+        if (lengthLongestRepeatedSubstring("000") != 1) {
+            System.out.println("Unexpected result on \"000\": " + lengthLongestRepeatedSubstring("000"));
+        }
+
+        String[] tests = {"0101", "1111", "11111", "010101", "0101010", "0101110101", "1110111111",
+                "11100010000", "1110000100001", "111000010001", "011010101"};
+        int [] answers = {2, 2, 2, 2, 3, 4, 3, 4, 5, 4, 3};
+
+        if (tests.length != answers.length) {
+            System.out.println("The number of tests and answers don't match");
+        }
+
+        for(int i = 0; i < tests.length; ++i) {
+            if (lengthLongestRepeatedSubstring(tests[i]) != answers[i]) {
+                System.out.println("Unexpected result on " + tests[i] + ":" +
+                        lengthLongestRepeatedSubstring(tests[i]) + " instead of " + answers[i]);
+            }
+        }
+    }
 
     /*
      * Takes an integer number and returns the number of 1s
      * in its binary representation.
      */
     public static int numBinaryOnes(String binary){
-        //System.out.println(binary);
-
         int count = 0;
         for (int i = 0; i < binary.length(); ++i) {
             if (binary.charAt(i) == '1') {

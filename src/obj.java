@@ -8,6 +8,7 @@ public class obj {
 
     public obj(int name) {
         this.name = name;
+        this.binRep = "-1";
         this.repeatLength = -1;
     }
 

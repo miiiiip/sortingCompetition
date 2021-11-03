@@ -50,13 +50,13 @@ public class Group0 {
     // a file in the exact same format that my program outputs
     private static void sort(Integer[] toSort) {
         obj[] inputConverted = new obj[toSort.length];
-
         for (int i = 0; i < toSort.length; i++) {
             inputConverted[i] = new obj(toSort[i]);
         }
-
-
         Arrays.sort(inputConverted, new BinaryComparator());
+        for (int i = 0; i < toSort.length; i++) {
+            toSort[i] = inputConverted[i].getName();
+        }
     }
 
     private static String[] readData(String inFile) throws FileNotFoundException {
@@ -90,30 +90,35 @@ public class Group0 {
     }
 
     private static void writeOutResult(Integer[] sorted, String outputFilename) throws FileNotFoundException {
-
         PrintWriter out = new PrintWriter(outputFilename);
         for (Integer s : sorted) {
             out.println(s);
-            //out.println(s + " " + Integer.toBinaryString(s));
         }
         out.close();
-
     }
 
     private static class BinaryComparator implements Comparator<obj> {
 
         @Override
         public int compare(obj n1, obj n2) {
+            if(n1.getBinRep().equals("-1")){
+                n1.setNum1s();
+            }
+            if(n2.getBinRep().equals("-1")){
+                n2.setNum1s();
+            }
             int digits1 = n1.getNum1s();
             int digits2 = n2.getNum1s();
             if (digits1 != digits2) return (digits1 - digits2);
             // executed only of the number of 1s is the same
 
             if(n1.getRepeatLength()==-1){
-                n1.setRepeatLength(Helper.lengthLongestRepeatedSubstring(n1.getBinRep()));
+                String binRep = n1.getBinRep();
+                n1.setRepeatLength(Helper.lengthLongestRepeatedSubstring(binRep));
             }
             if(n2.getRepeatLength()==-1){
-                n2.setRepeatLength(Helper.lengthLongestRepeatedSubstring(n2.getBinRep()));
+                String binRep = n2.getBinRep();
+                n2.setRepeatLength(Helper.lengthLongestRepeatedSubstring(binRep));
             }
             if (n1.getRepeatLength() != n2.getRepeatLength()) return (n1.getRepeatLength() - n2.getRepeatLength());
 
